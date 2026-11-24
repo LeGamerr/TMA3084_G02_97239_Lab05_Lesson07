@@ -1,27 +1,40 @@
 import 'package:flutter/material.dart';
+import 'Home.dart';
+import 'Alarm.dart';
+import 'Business.dart';
+import 'School.dart';
 
 void main() {
-  runApp(const MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: BottomNavigationBarApp(),
-  ));
+  runApp(const MyApp());
 }
 
-class BottomNavigationBarApp extends StatefulWidget {
-  const BottomNavigationBarApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
-  State<BottomNavigationBarApp> createState() => _BottomNavigationBarState();
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: BottomNavLab(),
+    );
+  }
 }
 
-class _BottomNavigationBarState extends State<BottomNavigationBarApp> {
+class BottomNavLab extends StatefulWidget {
+  const BottomNavLab({super.key});
+
+  @override
+  State<BottomNavLab> createState() => _BottomNavLabState();
+}
+
+class _BottomNavLabState extends State<BottomNavLab> {
   int currentIndex = 0;
 
   final List<Widget> screens = const [
-    Center(child: Icon(Icons.home, size: 80)),
-    Center(child: Icon(Icons.alarm, size: 80)),
-    Center(child: Icon(Icons.business, size: 80)),
-    Center(child: Icon(Icons.school, size: 80)),
+    Home(),
+    Alarm(),
+    Business(),
+    School(),
   ];
 
   @override
